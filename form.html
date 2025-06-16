@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Formulir Pemesanan Barang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+      <!-- Custom CSS -->
+ <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .table tbody tr:hover {
+            cursor: pointer;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+        }
+
+        .btn {
+            border-radius: 25px;
+        }
+
+        .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .table-dark th {
+            background-color: #212529;
+            border-color: #32383e;
+        }
+
+        .table-striped>tbody>tr:nth-of-type(odd)>td {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <div class="main-container fade-in">
+                    <!-- Header Section -->
+                        <div class="text-center mb-4">
+                            <h1 class="fw-bold text-primary mb-2">BOOTSTRAP</h1>
+                            <h2 class="h3 text-secondary mb-3">Contoh Formulir Pemesanan Barang</h2>
+                            <p class="text-muted mb-4">Berikut ini adalah contoh formulir pemesanan barang yang dibuat dengan berbagai komponen dari Bootstrap. Setiap komponen memberikan validasi agar formulir online ini bisa digunakan tanpa perlu salah input.</p>
+                                <a href="index.html">
+                            <button class="btn btn-primary btn-lg" onclick="toggleForm()">
+                                <i class="fas fa-plus-circle me-2"></i>Kembali ke Tabel Sebelumnya
+                            </button></a>
+                        </div>
+                    
+                    <!-- Content Section -->
+                    <div class="content-section">
+                        <div class="row">
+                            <!-- Form Section -->
+                            <div class="col-lg-8 order-lg-1 order-2">
+                                <div class="form-container">
+                                    <h4 class="h3 text-secondary mb-3">Alamat billing</h4>
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="firstName" class="form-label">Nama depan</label>
+                                                <input type="text" class="form-control" id="firstName" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="lastName" class="form-label">Nama belakang</label>
+                                                <input type="text" class="form-control" id="lastName" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">@</span>
+                                                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email (Opsional)</label>
+                                            <input type="email" class="form-control" id="email" placeholder="contoh@example.com">
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Alamat</label>
+                                            <input type="text" class="form-control" id="address" placeholder="Contoh: Perumahan Pondok Permata B4" required>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="country" class="form-label">Kota/Kabupaten</label>
+                                                <select class="form-select" id="country" required>
+                                                    <option value="">Pilih...</option>
+                                                    <option value="jakarta">Jakarta</option>
+                                                    <option value="bandung">Bandung</option>
+                                                    <option value="surabaya">Surabaya</option>
+                                                    <option value="yogyakarta">Yogyakarta</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="state" class="form-label">Provinsi</label>
+                                                <select class="form-select" id="state" required>
+                                                    <option value="">Pilih...</option>
+                                                    <option value="dki">DKI Jakarta</option>
+                                                    <option value="jabar">Jawa Barat</option>
+                                                    <option value="jatim">Jawa Timur</option>
+                                                    <option value="jogja">DI Yogyakarta</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="zip" class="form-label">Kode Pos</label>
+                                                <input type="text" class="form-control" id="zip" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr class="my-4">
+                                        
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="sameAddress">
+                                            <label class="form-check-label" for="sameAddress">
+                                                Alamat pengiriman sama dengan alamat billing
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" id="saveInfo">
+                                            <label class="form-check-label" for="saveInfo">
+                                                Simpan informasi ini untuk digunakan
+                                            </label>
+                                        </div>
+                                        
+                                        <h4 class="mb-3">Pembayaran</h4>
+                                        
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="credit" checked>
+                                            <label class="form-check-label" for="credit">
+                                                <strong>Kartu kredit</strong><br>
+                                            </label><br>
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="credit" checked>
+                                            <label class="form-check-label" for="credit">
+                                                <strong>Kartu Debit</strong>
+                                            </label><br>
+                                            <input class="form-check-input" type="radio" name="paymentMethod" id="credit" checked>
+                                            <label class="form-check-label" for="credit">
+                                                <strong>Paypal</strong>
+                                            </label><br>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cardName" class="form-label">Nama pemilik kartu</label>
+                                                <input type="text" class="form-control" id="cardName" required>
+                                                <small class="text-muted">Masukkan nama lengkap yang tertera pada kartu</small>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cardNumber" class="form-label">Nomor kartu kredit</label>
+                                                <input type="text" class="form-control" id="cardNumber" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label for="expiry" class="form-label">Masa berlaku</label>
+                                                <input type="text" class="form-control" id="expiry" required>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="cvv" class="form-label">Kode CVV</label>
+                                                <input type="text" class="form-control" id="cvv" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-form">
+                                            <i class="fas fa-credit-card me-2"></i>Proses pembayaran
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            <!-- Shopping Cart Section -->
+                            <div class="col-lg-4 order-lg-2 order-1 mb-4 mb-lg-0">
+                                <div class="shopping-cart">
+                                    <h5 class="cart-title" >
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Keranjang Belanja
+                                        <span class="badge bg-dark">3</span>
+                                    </h5>
+                                    
+                                    <div class="cart-item">
+                                        <div>
+                                            <strong>Kopi Arabika Gayo</strong><br>
+                                            <small class="text-muted">Isi 1 kg 250 gram</small>
+                                        </div>
+                                        <span class="price">Rp 140.000</span>
+                                    </div>
+                                    
+                                    <div class="cart-item">
+                                        <div>
+                                            <strong>Kopi Arabika Toraja Sapan</strong><br>
+                                            <small class="text-muted">Isi 1 kg 250 gram</small>
+                                        </div>
+                                        <span class="price">Rp 135.000</span>
+                                    </div>
+                                    
+                                    <div class="cart-item">
+                                        <div>
+                                            <strong>Kopi Arabika Pegunungan Halu</strong><br>
+                                            <small class="text-muted">Premium</small>
+                                        </div>
+                                        <span class="price">Rp 175.000</span>
+                                    </div>
+                                    
+                                    <div class="cart-item">
+                                        <div>
+                                            <strong>Kode Promo</strong><br>
+                                            <small class="text-muted">SELAMATUAN</small>
+                                        </div>
+                                        <span class="price">-Rp 75.000</span>
+                                    </div>
+                                    
+                                    <div class="cart-item">
+                                        <strong>Total</strong>
+                                        <strong class="price">Rp 300.000</strong>
+                                    </div>
+                                    
+                                    <div class="promo-section">
+                                        <label for="promoCode" class="form-label">Promo code</label>
+                                        <div class="promo-input">
+                                            <input type="text" class="form-control" id="promoCode" placeholder="Enter promo code">
+                                            <button type="button" class="btn btn-redeem">Redeem</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p style="text-align: center;">© 2025 Praktikum 1213 - Pengenalan Perancangan Web | Novan Karesa Imawan - 24.12.3096</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="checkout.js"></script>
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form validation
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Real-time validation
+                    const requiredFields = this.querySelectorAll('input[required], select[required]');
+                    let isValid = true;
+                    let firstInvalidField = null;
+                    
+                    // Clear previous error states
+                    requiredFields.forEach(field => {
+                        field.classList.remove('is-invalid');
+                        const feedback = field.parentNode.querySelector('.invalid-feedback');
+                        if (feedback) {
+                            feedback.remove();
+                        }
+                    });
+                    
+                    // Validate each required field
+                    requiredFields.forEach(field => {
+                        const value = field.value.trim();
+                        let errorMessage = '';
+                        
+                        if (!value) {
+                            errorMessage = 'Field ini wajib diisi.';
+                            isValid = false;
+                        } else {
+                            // Specific validations
+                            if (field.type === 'email' && value) {
+                                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                if (!emailRegex.test(value)) {
+                                    errorMessage = 'Format email tidak valid.';
+                                    isValid = false;
+                                }
+                            }
+                            
+                            if (field.id === 'zip' && value) {
+                                const zipRegex = /^\d{5}$/;
+                                if (!zipRegex.test(value)) {
+                                    errorMessage = 'Kode pos harus 5 digit angka.';
+                                    isValid = false;
+                                }
+                            }
+                            
+                            if (field.id === 'cardNumber' && value) {
+                                const cardRegex = /^\d{16}$/;
+                                if (!cardRegex.test(value.replace(/\s/g, ''))) {
+                                    errorMessage = 'Nomor kartu harus 16 digit.';
+                                    isValid = false;
+                                }
+                            }
+                            
+                            if (field.id === 'cvv' && value) {
+                                const cvvRegex = /^\d{3,4}$/;
+                                if (!cvvRegex.test(value)) {
+                                    errorMessage = 'Kode CVV harus 3-4 digit.';
+                                    isValid = false;
+                                }
+                            }
+                            
+                            if (field.id === 'expiry' && value) {
+                                const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+                                if (!expiryRegex.test(value)) {
+                                    errorMessage = 'Format masa berlaku: MM/YY';
+                                    isValid = false;
+                                }
+                            }
+                        }
+                        
+                        if (errorMessage) {
+                            field.classList.add('is-invalid');
+                            const feedback = document.createElement('div');
+                            feedback.className = 'invalid-feedback';
+                            feedback.textContent = errorMessage;
+                            field.parentNode.appendChild(feedback);
+                            
+                            if (!firstInvalidField) {
+                                firstInvalidField = field;
+                            }
+                        }
+                    });
+                    
+                    // Focus on first invalid field
+                    if (firstInvalidField) {
+                        firstInvalidField.focus();
+                        firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        return;
+                    }
+                    
+                    if (isValid) {
+                        // Add loading state to button
+                        const submitBtn = this.querySelector('.btn-process');
+                        const originalText = submitBtn.innerHTML;
+                        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Memproses...';
+                        submitBtn.disabled = true;
+                        
+                        // Simulate processing
+                        setTimeout(() => {
+                            alert('Pembayaran berhasil diproses!');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                        }, 2000);
+                    }
+                });
+                
+                // Real-time validation on input
+                const requiredFields = form.querySelectorAll('input[required], select[required]');
+                requiredFields.forEach(field => {
+                    field.addEventListener('blur', function() {
+                        validateSingleField(this);
+                    });
+                    
+                    field.addEventListener('input', function() {
+                        if (this.classList.contains('is-invalid')) {
+                            validateSingleField(this);
+                        }
+                    });
+                });
+            });
+            
+            // Single field validation function
+            function validateSingleField(field) {
+                const value = field.value.trim();
+                let errorMessage = '';
+                
+                // Clear previous error state
+                field.classList.remove('is-invalid');
+                const feedback = field.parentNode.querySelector('.invalid-feedback');
+                if (feedback) {
+                    feedback.remove();
+                }
+                
+                if (field.hasAttribute('required') && !value) {
+                    errorMessage = 'Field ini wajib diisi.';
+                } else if (value) {
+                    // Specific validations
+                    if (field.type === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(value)) {
+                            errorMessage = 'Format email tidak valid.';
+                        }
+                    }
+                    
+                    if (field.id === 'zip') {
+                        const zipRegex = /^\d{5}$/;
+                        if (!zipRegex.test(value)) {
+                            errorMessage = 'Kode pos harus 5 digit angka.';
+                        }
+                    }
+                    
+                    if (field.id === 'cardNumber') {
+                        const cardRegex = /^\d{16}$/;
+                        if (!cardRegex.test(value.replace(/\s/g, ''))) {
+                            errorMessage = 'Nomor kartu harus 16 digit.';
+                        }
+                    }
+                    
+                    if (field.id === 'cvv') {
+                        const cvvRegex = /^\d{3,4}$/;
+                        if (!cvvRegex.test(value)) {
+                            errorMessage = 'Kode CVV harus 3-4 digit.';
+                        }
+                    }
+                    
+                    if (field.id === 'expiry') {
+                        const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+                        if (!expiryRegex.test(value)) {
+                            errorMessage = 'Format masa berlaku: MM/YY';
+                        }
+                    }
+                }
+                
+                if (errorMessage) {
+                    field.classList.add('is-invalid');
+                    const feedbackDiv = document.createElement('div');
+                    feedbackDiv.className = 'invalid-feedback';
+                    feedbackDiv.textContent = errorMessage;
+                    field.parentNode.appendChild(feedbackDiv);
+                }
+            }
+            
+            // Auto-format card number
+            const cardNumberField = document.querySelector('#cardNumber');
+            if (cardNumberField) {
+                cardNumberField.addEventListener('input', function() {
+                    let value = this.value.replace(/\s/g, '').replace(/\D/g, '');
+                    value = value.substring(0, 16);
+                    value = value.replace(/(.{4})/g, '$1 ').trim();
+                    this.value = value;
+                });
+            }
+            
+            // Auto-format expiry date
+            const expiryField = document.querySelector('#expiry');
+            if (expiryField) {
+                expiryField.addEventListener('input', function() {
+                    let value = this.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    this.value = value;
+                });
+            }
+            
+            // Only numbers for CVV and zip
+            const numericFields = document.querySelectorAll('#cvv, #zip');
+            numericFields.forEach(field => {
+                field.addEventListener('input', function() {
+                    this.value = this.value.replace(/\D/g, '');
+                });
+            });
+            
+            // Promo code functionality
+            const promoBtn = document.querySelector('.btn-redeem');
+            const promoInput = document.querySelector('#promoCode');
+            
+            promoBtn.addEventListener('click', function() {
+                const promoCode = promoInput.value.trim();
+                if (promoCode) {
+                    alert(`Kode promo "${promoCode}" berhasil diterapkan!`);
+                    promoInput.value = '';
+                } else {
+                    alert('Silakan masukkan kode promo terlebih dahulu.');
+                }
+            });
+            
+            // Add hover effects to form controls
+            const formControls = document.querySelectorAll('.form-control, .form-select');
+            formControls.forEach(control => {
+                control.addEventListener('focus', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                
+                control.addEventListener('blur', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
